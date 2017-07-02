@@ -1,4 +1,6 @@
-## Welcome to GitHub Pages
+# The User Application
+
+Just seeing how this looks.
 
 You can use the [editor on GitHub](https://github.com/jacobshenning/web-application/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
