@@ -20,10 +20,11 @@ $app->map( 'GET', $router_path . '/about', function() {
 
 # Compute
 
-if ( $app->match() && is_callable( $app->match()['target'] ) ) {
+$match = $app->match();
+
+if ( $match && is_callable( $match['target'] ) ) {
 	call_user_func_array( $match['target'], $match['params'] );
 } else {
 	echo '404';
 }
-
 ?>
