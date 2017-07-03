@@ -23,8 +23,11 @@ $app->map( 'GET', $router_path . '/about', function() {
 // API
 
 $app->map( 'POST', $router_path . '/api', function() {
-  if ($isset($_POST['request'])) {
-    echo 'Hello' . $_POST['request'];
+
+  require 'app/api.php';
+
+  if (isset($_POST['request'])) {
+    $request = $_POST['request'];
   } else {
     echo 'fail';
   }
