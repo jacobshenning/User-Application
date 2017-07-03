@@ -24,13 +24,21 @@ $app->map( 'GET', $router_path . '/about', function() {
 
 $app->map( 'POST', $router_path . '/api', function() {
 
+  // API functions
   require 'app/api.php';
 
+  // Check Type
   if (isset($_POST['request'])) {
+
     $request = $_POST['request'];
+
+    $response = api($request);
+
   } else {
-    echo 'fail';
+    $response = json_encode('No Request Made');
   }
+
+  echo $response;
 });
 
 # Compute
