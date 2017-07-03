@@ -22,12 +22,12 @@ $app->map( 'GET', $router_path . '/about', function() {
 
 // API
 
-$app->map( 'GET', $router_path . '/api', function() {
-  echo '{API: "Welcome"}';
-});
-
-$app->map( 'GET', $router_path . '/api/test', function() {
-  echo '{API: "Test"}';
+$app->map( 'POST', $router_path . '/api', function() {
+  if ($isset($_POST['request'])) {
+    echo 'Hello' . $_POST['request'];
+  } else {
+    echo 'fail';
+  }
 });
 
 # Compute
