@@ -1,5 +1,7 @@
 <?php
 
-echo "Hello World";
+# Run Routes
+
+require 'app/routes.php';
 
 ?>
