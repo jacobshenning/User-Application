@@ -6,7 +6,16 @@ function Login() {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    
+    $conn = DB_Conn();
+
+    $sql = 'SELECT FROM users';
+    $result = $conn->query($sql);
+
+    while($row = $result->fetch_assoc()) {
+      echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    }
+
+    $conn->close();
 
   } else {
     // Error

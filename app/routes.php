@@ -26,6 +26,7 @@ $app->map( 'POST', $router_path . '/api', function() {
 
   // API functions
   require 'app/api.php';
+  require 'app/database.php';
 
   // Check Type
   if (isset($_POST['request'])) {

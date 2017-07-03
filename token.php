@@ -1,5 +1,9 @@
 <?php
 
+$dsn      = 'mysql:dbname=' . $db_name . ';host=' . $db_host;
+$username = $db_user;
+$password = $db_pass;
+
 // error reporting (this is a demo, after all!)
 ini_set('display_errors',1);error_reporting(E_ALL);
 
