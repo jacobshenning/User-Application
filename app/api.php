@@ -2,9 +2,11 @@
 
 function Login() {
   if (isset($_POST['username']) && isset($_POST['password'])) {
-    $response = 'Login System In Progress';
 
-    // Login Here
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    
 
   } else {
     // Error

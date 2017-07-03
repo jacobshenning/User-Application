@@ -1,10 +1,5 @@
 <?php
 
-// Credentials
-$dsn      = 'mysql:dbname=jacobshe_coop;host=jacobshenning.com';
-$username = 'jacobshe_coop';
-$password = 'CL#V#Rdog200!!';
-
 // error reporting (this is a demo, after all!)
 ini_set('display_errors',1);error_reporting(E_ALL);
 
