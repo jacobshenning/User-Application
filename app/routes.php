@@ -2,7 +2,7 @@
 
 # Includes
 
-require 'vendor/AltoRouter';
+require 'vendor/AltoRouter.php';
 
 # Initiate
 
