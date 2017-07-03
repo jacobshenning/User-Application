@@ -12,21 +12,21 @@ $app = new AltoRouter();
 
 // App
 
-$app->map( 'GET', $router_path . '/', function() {
+$app->map( 'GET', '/', function() {
   echo 'Website: Home';
 });
 
-$app->map( 'GET', $router_path . '/about', function() {
+$app->map( 'GET', '/about', function() {
   echo 'Website: About';
 });
 
 // API
 
-$app->map( 'POST', $router_path . '/api', function() {
+$app->map( 'POST', '/api', function() {
 
   // API functions
-  require 'app/api.php';
   require 'app/database.php';
+  require 'app/api.php';
 
   // Check Type
   if (isset($_POST['request'])) {

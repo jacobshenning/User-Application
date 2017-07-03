@@ -8,11 +8,19 @@ function Login() {
 
     $conn = DB_Conn();
 
-    $sql = 'SELECT FROM users';
+    $sql = 'SELECT * FROM users';
     $result = $conn->query($sql);
 
-    while($row = $result->fetch_assoc()) {
-      echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    while ($row = $result->fetch_assoc()) {
+      if ($row['username'] == $username) {
+        if ($row['password'] ==  $password) {
+          $response = 'Logged in';
+        } else {
+          $response = 'Incorrect Password';
+        }
+      } else {
+        $response = 'Username not found';
+      }
     }
 
     $conn->close();
