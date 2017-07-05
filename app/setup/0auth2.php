@@ -1,5 +1,8 @@
 <?php
 
+// This keeps my info secret ;)
+require '../app/setup/credentials.php';
+
 // Define Credentials
 $dsn      = 'mysql:dbname=' . $db_name . ';host=' . $db_host;
 $username = $db_user;
