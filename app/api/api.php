@@ -13,4 +13,15 @@ function API($request) {
   return $response;
 }
 
+function Controller($request) {
+
+  if ($request == 'messages') {
+    $response = 'messages';
+  } else {
+    $response = 'error';
+  }
+
+  return $response;
+}
+
 ?>

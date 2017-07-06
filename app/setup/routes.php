@@ -1,53 +1,81 @@
 <?php
 
+/*	============
+ *	Setup
+ *	============
+**/
+
+# Includes
+
 require '../private/vendor/AltoRouter.php';
 require '../app/api/api.php';
 
+# Create Router
+
 $router = new AltoRouter();
 
-// General Pages
+/*	============
+ *	Page Route
+ *	============
+**/
+
+# Home
 
 $router->map( 'GET', '/', function() {
 	echo 'home';
 });
 
+# About
+
 $router->map( 'GET', '/about', function() {
 	echo 'about';
 });
 
-// API Wrapper
+/*	============
+ *	API Routes
+ *	============
+**/
 
-$router->map( 'POST', '/api', function() {
-	if (isset($_POST['request'])) {
-		echo API($_POST['request']);
-	}
-});
-
-// API
-
-$router->map( 'POST', '/api/token', function() {
-	require '../app/api/server.php';
-	$server->handleTokenRequest(OAuth2\Request::createFromGlobals())->send();
-});
+# API Resource Controller
 
 $router->map( 'POST', '/api/controller', function() {
 
-	// include our OAuth2 Server object
-	require_once __DIR__.'/server.php';
+	//	Get our server object
+	require '../app/api/server.php';
 
-	// Handle a request to a resource and authenticate the access token
+	//	Authenticate that token
 	if (!$server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
-	    $server->getResponse()->send();
-	    die;
+	  $response = $server->getResponse()->send();
+	} else if (isset($_POST['request'])) {
+		$response = Controller($_POST['request']);
+	} else {
+		$response = '{"API_Systems":"Online"}';
 	}
 
-	echo json_encode(array('success' => true, 'message' => 'You accessed my APIs!'));
+	// Response
+	echo $response;
 });
 
-// match current request url
+#	API Token
+
+$router->map( 'POST', '/api/token', function() {
+
+	//	Get our server object
+	require '../app/api/server.php';
+
+	//	Check Credentials
+	$server->handleTokenRequest(OAuth2\Request::createFromGlobals())->send();
+});
+
+/*	============
+ *	Calculate Requests
+ *	============
+**/
+
+# match current request url
 $match = $router->match();
 
-// call closure or throw 404 status
+# call closure or throw 404 status
 if( $match && is_callable( $match['target'] ) ) {
 	call_user_func_array( $match['target'], $match['params'] );
 } else {
