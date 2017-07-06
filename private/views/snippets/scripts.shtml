@@ -1,0 +1,7 @@
+
+<!-- Scripts Loaded Here -->
+<div id='Scripts'>
+  <script src='js/jquery.min.js'> </script>
+  <script src='js/bootstrap.min.js'> </script>
+  <?php echo $scripts ?>
+</div>

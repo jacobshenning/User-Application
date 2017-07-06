@@ -9,6 +9,7 @@
 
 require '../private/vendor/AltoRouter.php';
 require '../app/api/api.php';
+require '../private/views/master.php';
 
 # Create Router
 
@@ -22,7 +23,7 @@ $router = new AltoRouter();
 # Home
 
 $router->map( 'GET', '/', function() {
-	echo 'home';
+	require '../private/views/home/home.php';
 });
 
 # About
