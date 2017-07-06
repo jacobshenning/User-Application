@@ -1,14 +1,18 @@
 <?php
 
-Snippet('head');
+$scripts = Scripts(['test']);
+
+$test = 'test';
+
+$title = 'test';
+
+include '../private/views/snippets/head.php';
 
 echo '<body>';
 
 include '../private/views/home/home.shtml';
 
-$scripts = Scripts(['test']);
-
-Snippet('scripts');
+include '../private/views/snippets/scripts.php';
 
 echo '</body>';
 

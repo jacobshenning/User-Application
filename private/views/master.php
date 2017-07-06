@@ -1,9 +1,5 @@
 <?php
 
-function Snippet($name) {
-  include '../private/views/snippets/' . $name . '.php';
-}
-
 function Scripts($array) {
 
   $response = '';

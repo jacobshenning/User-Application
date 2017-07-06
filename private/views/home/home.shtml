@@ -1,1 +1,6 @@
-<h1> Hello World </h1>
+<div class="container">
+  <h1> Hello World </h1>
+  <button id='Login' type="btn btn-default" name="login"> Login </button>
+  <button id='Access' type="btn btn-default" name="access"> Access </button>
+  <button id='Clear' type="btn btn-default" name="clear"> Clear Data </button>
+</div>
