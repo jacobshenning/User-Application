@@ -27,15 +27,15 @@ $( "#Login" ).click(function() {
     success: function (data) {
       object = data;
       localStorage.token = object['access_token'];
-      console.log(localStorage.token);
+      console.log('Logged in with token: ' + localStorage.token);
     },
     error: function (data) {
-      console.log(data);
+      console.log('something went terribly wrong...');
     }
   });
 });
 
-$( "#Access" ).click(function() {
+$( "#AccessMessages" ).click(function() {
 
   // Get credentials
   var token = localStorage.token;
@@ -51,11 +51,33 @@ $( "#Access" ).click(function() {
       console.log(data);
     },
     error: function (data) {
+      console.log('Error, could not access message info.');
+    }
+  });
+});
+
+$( "#AccessUser" ).click(function() {
+
+  // Get credentials
+  var token = localStorage.token;
+  var req = 'user';
+
+  // Send credentials
+  $.ajax({
+    type: 'POST',
+    dataType: 'json',
+    url: 'http://user.jacobshenning.com/api/controller',
+    data: { access_token: token, request: req },
+    success: function (data) {
       console.log(data);
+    },
+    error: function (data) {
+      console.log('Error, could not access user info.');
     }
   });
 });
 
 $( "#Clear" ).click(function() {
   localStorage.token = null;
+  console.log('Local Token Deleted');
 });

@@ -1,6 +1,9 @@
 <div class="container">
-  <h1> Hello World </h1>
-  <button id='Login' type="btn btn-default" name="login"> Login </button>
-  <button id='Access' type="btn btn-default" name="access"> Access </button>
-  <button id='Clear' type="btn btn-default" name="clear"> Clear Data </button>
+  <div class='col-md-12'>
+    <h1> Hello World </h1>
+    <button id='Login' type="button" class='btn btn-default' name="login"> Login </button>
+    <button id='AccessMessages' type="button" class='btn btn-default' name="accessmessages"> Access Messages</button>
+    <button id='AccessUser' type="button" class='btn btn-default' name="accessuser"> Access User</button>
+    <button id='Clear' type="button" class='btn btn-default' name="clear"> Clear Data </button>
+  </div>
 </div>
